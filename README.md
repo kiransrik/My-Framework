@@ -9,7 +9,6 @@
 - Git
 
 ### Steps to Install:
-```sh
 # Clone the repository
 git clone <repo-url>
 cd automation_framework
@@ -22,36 +21,33 @@ venv\Scripts\activate    # For Windows
 # Install dependencies
 pip install -r requirements.txt
 playwright install
-```
-
 ## 2. Running Tests Locally
 
 ### Run UI Tests:
-```sh
+
 pytest tests/ui_tests/
-```
+
 
 ### Run API Tests:
-```sh
+
 pytest tests/api_tests/
-```
+
 
 ### View Test Results:
-- Screenshots are saved in the `results/` folder.
-- Test reports are available in `reports/`.
+- Screenshots are saved in the `Screenshots/` folder.
+- Test reports are available in the `Reports/` folder.
 
 ## 3. API Testing Setup & Example
 
 The framework includes API testing using the `requests` library. Example test:
 
-```python
 import requests
 
 def test_api_response():
     response = requests.get("https://jsonplaceholder.typicode.com/posts/1")
     assert response.status_code == 200, "API response failed"
     print(response.json())
-```
+
 
 ## 4. CI/CD Integration (GitHub Actions)
 
