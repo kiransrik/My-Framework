@@ -1,41 +1,30 @@
 # My-Framework
-# Test Automation Framework using Playwright & Python
+# Test Automation Framework using Python & Playwright.
 
 ## 1. Setup Instructions
 
 ### Prerequisites:
-- Python 3.9+
+- Python 3.12+
 - Node.js (for Playwright)
 - Git
 
 ### Steps to Install:
-# Clone the repository
-git clone <repo-url>
-cd automation_framework
-
-# Create virtual environment
-python -m venv venv
-source venv/bin/activate  # For Mac/Linux
-venv\Scripts\activate    # For Windows
-
 # Install dependencies
 pip install -r requirements.txt
 playwright install
+
 ## 2. Running Tests Locally
 
 ### Run UI Tests:
-
 pytest tests/ui_tests/
 
-
 ### Run API Tests:
-
 pytest tests/api_tests/
 
-
 ### View Test Results:
-- Screenshots are saved in the `Screenshots/` folder.
-- Test reports are available in the `Reports/` folder.
+- Screenshots are saved in the `screenshots/` folder.
+- Videos are saved in the 'videos/' folder.
+- Test reports are available in the `reports/` folder.
 
 ## 3. API Testing Setup & Example
 
