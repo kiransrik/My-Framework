@@ -43,7 +43,7 @@ def test_api_response():
 A GitHub Actions pipeline (`ci_cd_pipeline.yml`) is included. It runs tests on every push and PR to `main`.
 
 ### CI/CD Workflow Steps:
-1. Checkout code
+1. Clone repository/Checkout code
 2. Set up Python and install dependencies
 3. Run UI and API tests using `pytest`
 4. Upload test results as artifacts
