@@ -11,3 +11,5 @@ class HomePage:
 
     def verify_homepage_title(self):
         assert "Arqiva" in self.page.title(), "Homepage title did not match"
+        missing_element_selector = "text=NonExistentElement"
+        assert self.page.locator(missing_element_selector).count() == 0, "Unexpected element found!"
