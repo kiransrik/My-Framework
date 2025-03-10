@@ -1,0 +1,51 @@
+name: CI/CD Pipeline
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+  schedule:
+    - cron: "0 0 * * *"  # Runs daily at midnight
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: "3.9"
+
+      - name: Install dependencies
+        run: |
+          python -m venv venv
+          source venv/bin/activate
+          pip install -r requirements.txt
+          playwright install
+
+      - name: Run Playwright tests and generate reports
+        run: |
+          source venv/bin/activate
+          pytest tests/ui_tests/ --html=reports/results.html --junitxml=reports/output.xml
+          pytest tests/api_tests/ --html=reports/api_results.html --junitxml=reports/api_output.xml
+
+      - name: Upload test reports
+        uses: actions/upload-artifact@v3
+        with:
+          name: test-reports
+          path: reports/
+
+      - name: Deploy to Staging (on success)
+        if: success()
+        run: echo "Deploying to staging environment..."
+
+      - name: Deploy to Production (on manual approval)
+        if: github.ref == 'refs/heads/main' && success()
+        uses: hmarr/auto-approve-action@v3
