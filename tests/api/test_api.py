@@ -1,5 +1,6 @@
 import requests
 
 def test_api_status():
-    response = requests.get("https://jsonplaceholder.typicode.com/posts")
-    assert response.status_code == 200
+    response = requests.get("https://jsonplaceholder.typicode.com/posts")  # Send a GET request to the API endpoint
+    # Assert that the response status code is 200 (OK), indicating a successful request
+    assert response.status_code == 200, f"Expected status code 200 but got {response.status_code}" 
