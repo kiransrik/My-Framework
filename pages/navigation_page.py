@@ -1,5 +1,5 @@
 from playwright.sync_api import Page
-from utils import config
+from utils import config #imported config file for BASE_URL
 
 class NavigationPage:
     def __init__(self, page: Page):
