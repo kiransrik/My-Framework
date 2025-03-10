@@ -22,7 +22,7 @@ pytest tests/ui_tests/
 pytest tests/api_tests/
 
 ### View Test Results:
-- Screenshots are saved in the `screenshots/` folder.
+- Screenshots are saved in the `screenshot/` folder.
 - Videos are saved in the 'videos/' folder.
 - Test reports are available in the `reports/` folder.
 
