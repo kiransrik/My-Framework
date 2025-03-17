@@ -33,8 +33,8 @@ jobs:
       - name: Run Playwright tests and generate reports
         run: |
           source venv/bin/activate
-          pytest tests/ui_tests/ --html=reports/results.html --junitxml=reports/output.xml
-          pytest tests/api_tests/ --html=reports/api_results.html --junitxml=reports/api_output.xml
+          pytest --html=reports/report.html  --self-contained-html
+          pytest --junitxml=reports/output.xml
 
       - name: Upload test reports
         uses: actions/upload-artifact@v3
